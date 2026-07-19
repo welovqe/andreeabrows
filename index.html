@@ -26,7 +26,7 @@
 </div>
 
 <header class="main-header">
-  <<a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
+  <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
     <span class="logo-title">ANDREA</span>
     <span class="logo-sub">brows & lashes</span>
 </a>
@@ -35,7 +35,7 @@
   </button>
 </header>
 
-<<section class="hero">
+< section class="hero">
   <h1 class="animate-in delay-1" data-i18n="hero_title">Sprâncene și gene perfecte</h1>
   <p class="animate-in delay-2" data-i18n="hero_sub">Micropigmentare, laminare, corecție și stilizare</p>
 </section>
@@ -144,6 +144,28 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAuTzaxwOxems7Wsgb06_-aO8qvKlveWM4",
+    authDomain: "andrea-brows.firebaseapp.com",
+    projectId: "andrea-brows",
+    storageBucket: "andrea-brows.firebasestorage.app",
+    messagingSenderId: "626124625953",
+    appId: "1:626124625953:web:a87ec0709fe2f1e781eb60"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  window.firebaseDB = db;
+  window.firebaseCollection = collection;
+  window.firebaseAddDoc = addDoc;
+  window.firebaseGetDocs = getDocs;
+</script>
 <script src="script.js"></script>
 </body>
 </html>

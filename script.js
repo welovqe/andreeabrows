@@ -1,20 +1,24 @@
 emailjs.init("KP5xzzN1sr1Q6WHsq");
 
-function getBookedSlots() {
-  const data = localStorage.getItem('bookedSlots');
-  return data ? JSON.parse(data) : [];
+let bookedSlotsCache = [];
+
+async function loadBookedSlots() {
+  const snapshot = await window.firebaseGetDocs(window.firebaseCollection(window.firebaseDB, "bookedSlots"));
+  bookedSlotsCache = snapshot.docs.map(doc => doc.data().slotKey);
 }
 
-function addBookedSlot(dateKey, time) {
-  const slots = getBookedSlots();
-  slots.push(`${dateKey}_${time}`);
-  localStorage.setItem('bookedSlots', JSON.stringify(slots));
+async function addBookedSlot(dateKey, time) {
+  const slotKey = `${dateKey}_${time}`;
+  await window.firebaseAddDoc(window.firebaseCollection(window.firebaseDB, "bookedSlots"), {
+    slotKey: slotKey,
+    createdAt: new Date().toISOString()
+  });
+  bookedSlotsCache.push(slotKey);
 }
 
 function isSlotBooked(dateKey, time) {
-  return getBookedSlots().includes(`${dateKey}_${time}`);
+  return bookedSlotsCache.includes(`${dateKey}_${time}`);
 }
-
 function dateToKey(date) {
   return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
 }
@@ -349,7 +353,8 @@ function goToStep2() {
   showStep(2);
 }
 
-function goToStep3() {
+async function goToStep3() {
+  await loadBookedSlots();
   renderDateStrip();
   renderTimeGrid();
   showStep(3);
@@ -451,7 +456,8 @@ document.getElementById('booking-form').addEventListener('submit', function (e) 
   };
 
   emailjs.send("service_tr85xev", "template_rxo2igr", templateParams)
-    .then(function() {
+    .then(async function() {
+      await addBookedSlot(dateToKey(selectedDate), selectedTime);
       document.getElementById('final-message').textContent =
         t().thank_you(name, dateStr, selectedTime, selectedService.name);
       document.querySelector('.success-box h3').textContent = t().success_title;
