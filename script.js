@@ -354,7 +354,12 @@ function goToStep2() {
 }
 
 async function goToStep3() {
-  await loadBookedSlots();
+  try {
+    await loadBookedSlots();
+  } catch (err) {
+    console.error("Firebase error:", err);
+    bookedSlotsCache = [];
+  }
   renderDateStrip();
   renderTimeGrid();
   showStep(3);
