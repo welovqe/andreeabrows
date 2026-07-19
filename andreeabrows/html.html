@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrea Brows — Programare online</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-bar-left">
+    <i class="fa-solid fa-location-dot"></i> Chișinău, Botanica, str Sarmizegetusa 18
+  </div>
+  <div class="top-bar-right">
+    <a href="https://www.instagram.com/andrea.zaitev/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@andrea.browss" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    <span><i class="fa-solid fa-phone"></i> (069) 51-38-83</span>
+  </div>
+</div>
+
+<header class="main-header">
+  <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
+    <span class="logo-title">ANDREA</span>
+    <span class="logo-sub">brows & lashes</span>
+</a>
+  <button class="btn-book" onclick="scrollToBooking()">
+    <i class="fa-solid fa-calendar-check"></i> Programează-te
+  </button>
+</header>
+
+<<section class="hero">
+  <h1 class="animate-in delay-1">Sprâncene și gene perfecte</h1>
+  <p class="animate-in delay-2">Micropigmentare, laminare, corecție și stilizare</p>
+</section>
+
+<section class="master-section reveal">
+  <img class="master-photo" src="andreea.jpg" alt="Andrea Brows">
+  <div class="master-info">
+    <h2>Andrea Brows</h2>
+    <span class="master-role">Specialist sprâncene & gene</span>
+    <p class="master-bio">
+      Meșter în sprâncene cu experiența de 4 ani🌸datorită mie o să dormi dimineața cu 20 minute
+    Laminarea genelor și sprâncenelor într-o oră
+    Fără sprâncene groase și negre‼️
+    Activez într-un cabinet cu atmosferă plăcută și locație accesibilă✨
+    </p>
+  </div>
+</section>
+
+<section id="booking" class="wizard reveal">
+
+  <div class="wizard-bar">
+    <button id="back-btn" class="back-btn" onclick="goBack()" style="visibility:hidden;">
+      <i class="fa-solid fa-arrow-left"></i>
+    </button>
+    <span id="wizard-title">Alege serviciul</span>
+  </div>
+
+  <div id="step-1" class="wizard-step active">
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="search-input" placeholder="Caută un serviciu...">
+    </div>
+
+    <div class="tabs" id="tabs-container"></div>
+
+    <div class="service-list" id="service-list"></div>
+  </div>
+
+  <div id="step-2" class="wizard-step">
+    <div class="detail-card" id="service-detail"></div>
+
+    <div class="specialist-card">
+      <div class="specialist-title">Specialist pentru programare</div>
+      <div class="specialist-row">
+        <img class="specialist-avatar" src="andreea1.jpg" alt="Andrea Brows">
+        <div>
+          <div class="specialist-name">Andrea Brows</div>
+          <div class="specialist-role">Specialist sprâncene & gene</div>
+        </div>
+        <button class="btn-select" onclick="goToStep3()">Alege</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="step-3" class="wizard-step">
+    <div class="date-strip" id="date-strip"></div>
+    <div class="time-grid" id="time-grid"></div>
+    <button class="btn-confirm" id="confirm-date-btn" onclick="goToStep4()" disabled>Continuă</button>
+  </div>
+
+  <div id="step-4" class="wizard-step">
+    <div class="summary-card" id="booking-summary"></div>
+
+    <form id="booking-form">
+      <input type="text" id="client-name" placeholder="Numele Prenumele" required pattern="[A-Za-zĂăÂâÎîȘșȚț\s]{3,50}" title="Introdu numele și prenumele (doar litere)">
+<input type="tel" id="client-phone" placeholder="Numărul de telefon" required pattern="0[6-7][0-9]{7,8}" title="Introdu un număr de telefon valid din Moldova (ex: 069123456)">
+      <button type="submit"><i class="fa-solid fa-calendar-check"></i> Confirmă programarea</button>
+    </form>
+  </div>
+
+  <div id="step-5" class="wizard-step">
+    <div class="success-box">
+      <i class="fa-solid fa-circle-check"></i>
+      <h3>Programare confirmată!</h3>
+      <p id="final-message"></p>
+      <button class="btn-select" onclick="resetWizard()">Fă o nouă programare</button>
+    </div>
+  </div>
+
+</section>
+
+<footer id="contacts" class="main-footer">
+  <div class="footer-col">
+    <div class="logo">
+      <span class="logo-title">ANDREA</span>
+      <span class="logo-sub">brows & lashes</span>
+    </div>
+    <p>Studio specializat în sprâncene și gene din Chișinău. Te așteptăm cu drag!</p>
+    <div class="socials">
+      <a href="https://www.instagram.com/andrea.zaitev/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@andrea.browss" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+  </div>
+
+  <div class="footer-col">
+    <h4>Program</h4>
+    <p>Luni - Sâmbătă: 8:00 - 21:00</p>
+    <p>Duminică:Zi libera</p>
+  </div>
+
+  <div class="footer-col">
+    <h4>Contacte</h4>
+    <p><i class="fa-solid fa-mobile-screen"></i> (069) 51-38-83</p>
+    <p><i class="fa-solid fa-location-dot"></i> Chișinău,Botanica,str Sarmizegetusa 18</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
