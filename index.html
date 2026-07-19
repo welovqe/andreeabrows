@@ -14,6 +14,11 @@
     <i class="fa-solid fa-location-dot"></i> Chișinău, Botanica, str Sarmizegetusa 18
   </div>
   <div class="top-bar-right">
+    <div class="lang-switch">
+    <button onclick="setLang('ro')" data-lang-btn="ro">RO</button>
+    <button onclick="setLang('ru')" data-lang-btn="ru">RU</button>
+    <button onclick="setLang('en')" data-lang-btn="en">EN</button>
+    </div>
     <a href="https://www.instagram.com/andrea.zaitev/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
     <a href="https://www.tiktok.com/@andrea.browss" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
     <span><i class="fa-solid fa-phone"></i> (069) 51-38-83</span>
@@ -26,21 +31,21 @@
     <span class="logo-sub">brows & lashes</span>
 </a>
   <button class="btn-book" onclick="scrollToBooking()">
-    <i class="fa-solid fa-calendar-check"></i> Programează-te
+    <i class="fa-solid fa-calendar-check"></i> <span data-i18n="book_now">Programează-te</span>
   </button>
 </header>
 
 <<section class="hero">
-  <h1 class="animate-in delay-1">Sprâncene și gene perfecte</h1>
-  <p class="animate-in delay-2">Micropigmentare, laminare, corecție și stilizare</p>
+  <h1 class="animate-in delay-1" data-i18n="hero_title">Sprâncene și gene perfecte</h1>
+  <p class="animate-in delay-2" data-i18n="hero_sub">Micropigmentare, laminare, corecție și stilizare</p>
 </section>
 
 <section class="master-section reveal">
   <img class="master-photo" src="andreea.jpg" alt="Andrea Brows">
   <div class="master-info">
-    <h2>Andrea Brows</h2>
-    <span class="master-role">Specialist sprâncene & gene</span>
-    <p class="master-bio">
+    <h2 data-i18n="master_name">Andrea Brows</h2>
+    <span class="master-role" data-i18n="master_role">Specialist sprâncene & gene</span>
+    <p class="master-bio" data-i18n="master_bio">
       Meșter în sprâncene cu experiența de 4 ani🌸datorită mie o să dormi dimineața cu 20 minute
     Laminarea genelor și sprâncenelor într-o oră
     Fără sprâncene groase și negre‼️
@@ -61,7 +66,7 @@
   <div id="step-1" class="wizard-step active">
     <div class="search-box">
       <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="text" id="search-input" placeholder="Caută un serviciu...">
+      <input type="text" id="search-input" data-i18-placeholder="search_service"placeholder="Caută un serviciu...">
     </div>
 
     <div class="tabs" id="tabs-container"></div>
@@ -134,7 +139,7 @@
   <div class="footer-col">
     <h4>Contacte</h4>
     <p><i class="fa-solid fa-mobile-screen"></i> (069) 51-38-83</p>
-    <p><i class="fa-solid fa-location-dot"></i> Chișinău,Botanica,str Sarmizegetusa 18</p>
+    <i class="fa-solid fa-location-dot"></i> <span data-i18n="address">Chișinău, Botanica, str Sarmizegetusa 18</span>
   </div>
 </footer>
 

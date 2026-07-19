@@ -564,3 +564,30 @@ a { text-decoration: none; color: inherit; }
 .logo {
   transition: transform 0.3s;
 }
+.lang-switch {
+  display: flex;
+  gap: 6px;
+  margin-right: 12px;
+}
+
+.lang-switch button {
+  background: transparent;
+  border: 1px solid currentColor;
+  color: inherit;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.lang-switch button:hover {
+  opacity: 1;
+}
+
+.lang-switch button.active {
+  opacity: 1;
+  background: rgba(255,255,255,0.15);
+  font-weight: bold;
+}
